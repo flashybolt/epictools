@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/spinner.css')}}">
+    <script>
+      function preloader() {
+          document.getElementsByClassName("background")[0].style.display = "none";
+          document.getElementsByClassName("page-wrapper")[0].style.display = "block";
+      }
+      window.onload = preloader;
+    </script>
+    <div class="background">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+    <div>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/css/uikit.min.css" />
+      <link rel="stylesheet" href="{{url_for('static', filename='css/fouc.css')}}">
+      <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+      <link rel="icon" href="data:,">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/js/uikit.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/js/uikit-icons.min.js"></script>
+      <meta charset="utf-8">
+      {% block stylesheets_and_scripts %}
+      {% endblock %}
+      {% block head %}
+      {% endblock %}
+    </div>
+  </head>
+  <body>
+    <div class="page-wrapper" style="display:none;">
+      <nav class="uk-navbar-container" uk-navbar="mode:click">
+        <div class="uk-navbar-left">
+          <a href="{{url_for('home')}}" class="uk-navbar-item uk-logo uk-margin-small-left">Epictools</a>
+          <ul class="uk-navbar-nav">
+            <li><a href="{{url_for('login')}}">Login</a></li>
+            <li><a href="{{url_for('register')}}">Register</a></li>
+            <li><a href="{{url_for('tools')}}">All Tools</a></li>
+            <li><a href="{{url_for('workshop')}}">Workshop</a></li>
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            <li>
+              <a href="#"><span uk-icon="icon:more-vertical;ratio:1.5" class="uk-margin-small-right"></span></a>
+              <div class="uk-navbar-dropdown" uk-dropdown="pos:bottom-left">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                  <li><a href="#">Terms of Use</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Credits</a></li>
+                  <li><a href="#">About</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="uk-padding-large">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

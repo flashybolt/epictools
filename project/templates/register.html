@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-wrapper">
+  <div class="form-box">
+    <h2 class="form-heading">Register</h2>
+    <form class="form" method="POST" novalidate>
+        {# This hidden_tag is a CSRF security feature. #}
+        {{ form.hidden_tag() }}
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="social"></span>
+            {{ form.email(class="uk-input uk-form-width-medium", placeholder="Email") }}
+          </div>
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="user"></span>
+            {{ form.username(class="uk-input uk-form-width-medium", placeholder="Username") }}
+          </div>
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="lock"></span>
+            {{ form.password(class="uk-input uk-form-width-medium", placeholder="Password") }}
+          </div>
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="lock"></span>
+            {{ form.pass_confirm(class="uk-input uk-form-width-medium", placeholder="Confirm password") }}
+          </div>
+        </div>
+        <div class="uk-margin">
+          {% if form.email.errors %}
+          {% for error in form.email.errors %}
+          {{ error }}
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="uk-margin">
+          {% if form.username.errors %}
+          {% for error in form.username.errors %}
+          {{ error }}
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="uk-margin">
+          {% if form.password.errors %}
+          {% for error in form.password.errors %}
+          {{ error }}
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="uk-margin">
+          {% if form.pass_confirm.errors %}
+          {% for error in form.pass_confirm.errors %}
+          {{ error }}
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="uk-margin">
+          {% for mess in get_flashed_messages() %}
+          {{ mess }}
+          {% endfor %}
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            {{ form.submit(class="uk-input uk-form-width-medium", placeholder="Submit") }}
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block stylesheets_and_scripts %}
+{% endblock %}

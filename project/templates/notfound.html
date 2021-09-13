@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>404 Not Found</h1>
+<p class="uk-margin-medium-bottom uk-margin-medium-top">The page you requested was not found on the server. Please check your spelling and retry.</p>
+<a class="uk-button uk-button-default" href="{{url_for('home')}}">Return home</a>
+{% endblock %}
