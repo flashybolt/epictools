@@ -1,16 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-  <div class="home-slider">
-    <h1 class="home-about-header"></h1>
-    <h3 class="home-about-text"></h3>
-  </div>
-  {% if current_user.is_authenticated %}
-    <p>Hi {{ current_user.username }}!</p>
-  {% else %}
-    <p>Please login or register!</p>
-  {% endif %}
-</div>
 {% for mess in get_flashed_messages(category_filter=["modal"]) %}
 <div id="modal-close-default" uk-modal>
   <div class="uk-modal-dialog uk-modal-body">
@@ -19,6 +8,9 @@
   </div>
 </div>
 {% endfor %}
+<h1>Tools Page</h1>
+<a href="{{ url_for('home') }}">Back</a>
 {% endblock %}
 {% block head %}
+
 {% endblock %}

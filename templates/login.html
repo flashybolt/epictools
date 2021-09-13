@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<form action='/login' method="POST">
+  <div class="uk-margin">
+    <input type="email" name="email" class="uk-input uk-form-width-medium" placeholder="Email">
+  </div>
+  <div class="uk-margin">
+    <input type="password" name="password" class="uk-input uk-form-width-medium" placeholder="Password">
+  </div>
+  <div class="uk-margin">
+    {% if s %}
+    {{s}}
+    {% elif us %}
+    {{us}}
+    {% endif %}
+  </div>
+  <div class="uk-margin">
+    <input type="submit" name="submit" class="uk-input uk-form-width-medium" value="Login">
+  </div>
+</form>
+{% endblock %}
